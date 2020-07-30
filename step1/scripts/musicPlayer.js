@@ -23,7 +23,6 @@ export const musicPlayerInit = () => {
     const loadTrack = () => {
         const isPlayed = audioPlayer.paused;
         const track = playlist[trackIndex];
-
         audioImg.src = `./audio/${track}.jpg`;
         audioHeader.textContent = track.toUpperCase();
         audioPlayer.src = `./audio/${track}.mp3`;
@@ -33,6 +32,10 @@ export const musicPlayerInit = () => {
         } else {
             audioPlayer.play();
         }
+
+        // audioPlayer.addEventListener('canplay', () => {
+        //     updateTime();
+        // })
     };
 
     const prevTrack = () => {
