@@ -10,6 +10,9 @@ export const videoPlayerInit = () => {
     const videoTimeTotal = document.querySelector('.video-time__total');
     const videoVolume = document.querySelector('.video-volume');
     const videoFullscreen = document.querySelector('.video-fullscreen');
+    const videoMute = document.querySelector('.video-mute');
+
+    let prevVolume = 1;
 
     videoFullscreen.addEventListener('click', () => {   
         videoPlayer.requestFullscreen();
@@ -78,6 +81,19 @@ export const videoPlayerInit = () => {
     });
 
     videoVolume.value = videoPlayer.value * 100;
+
+    videoMute.addEventListener('click', () => {
+        if (videoPlayer.volume) {
+            prevVolume = videoPlayer.volume;
+            videoPlayer.volume = 0;
+        } else {
+            videoPlayer.volume = prevVolume;
+        }
+    })
+
+    videoPlayerInit.stop = () => {
+        videoPlayer.pause();
+    };
 };
 
 

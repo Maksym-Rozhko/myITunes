@@ -12,9 +12,11 @@ const deactivationBtn = () => {
     temp.style.display = 'none';
     playerBtns.forEach(item => item.classList.remove('active'));
     playerBlocks.forEach(item => item.classList.remove('active'));
+
+    musicPlayerInit.stop();
+    videoPlayerInit.stop();
+    radioPlayerInit.stop();
 };
-
-
 
 playerBtns.forEach((btns, i) => btns.addEventListener('click', () => {
     deactivationBtn();
@@ -22,10 +24,6 @@ playerBtns.forEach((btns, i) => btns.addEventListener('click', () => {
     playerBlocks[i].classList.add('active');
 }));
 
-
-
-
-
 videoPlayerInit();
 radioPlayerInit();
-musicPlayerInit(); 
+musicPlayerInit();   
